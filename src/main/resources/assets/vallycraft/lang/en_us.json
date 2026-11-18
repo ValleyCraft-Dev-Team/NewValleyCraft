@@ -1,0 +1,13 @@
+{
+  "itemGroup.vallycraft": "Example Mod Tab",
+  "block.vallycraft.example_block": "Example Block",
+  "item.vallycraft.example_item": "Example Item",
+
+  "vallycraft.configuration.title": "VallyCraft Configs",
+  "vallycraft.configuration.section.vallycraft.common.toml": "VallyCraft Configs",
+  "vallycraft.configuration.section.vallycraft.common.toml.title": "VallyCraft Configs",
+  "vallycraft.configuration.items": "Item List",
+  "vallycraft.configuration.logDirtBlock": "Log Dirt Block",
+  "vallycraft.configuration.magicNumberIntroduction": "Magic Number Text",
+  "vallycraft.configuration.magicNumber": "Magic Number"
+}
