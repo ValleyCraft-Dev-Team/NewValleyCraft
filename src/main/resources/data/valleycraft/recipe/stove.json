@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#C#",
+    "#c#"
+  ],
+  "key": {
+    "#": "minecraft:bricks",
+    "C": "minecraft:copper_bars",
+    "c": "minecraft:campfire"
+  },
+  "result": {
+    "id": "valleycraft:stove"
+  }
+}

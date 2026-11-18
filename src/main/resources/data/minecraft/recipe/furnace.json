@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#_#",
+    "#C#"
+  ],
+  "key": {
+    "#": "minecraft:cobblestone",
+    "_": "minecraft:cobblestone_slab",
+    "C": "minecraft:campfire"
+  },
+  "result": {
+    "id": "minecraft:furnace"
+  }
+}

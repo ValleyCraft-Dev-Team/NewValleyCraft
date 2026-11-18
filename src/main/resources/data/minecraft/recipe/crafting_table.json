@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#F",
+    "O/"
+  ],
+  "key": {
+    "#": "#valleycraft:leathers",
+    "F": "minecraft:flint",
+    "O": "minecraft:oak_planks",
+    "/": "valleycraft:wood_dowel"
+  },
+  "result": {
+    "id": "minecraft:crafting_table"
+  }
+}

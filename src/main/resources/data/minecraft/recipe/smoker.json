@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#C#",
+    "CIC",
+    "#c#"
+  ],
+  "key": {
+    "#": "minecraft:oak_log",
+    "C": "minecraft:cobblestone",
+    "I": "minecraft:iron_bars",
+    "c": "minecraft:campfire"
+  },
+  "result": {
+    "id": "minecraft:smoker"
+  }
+}

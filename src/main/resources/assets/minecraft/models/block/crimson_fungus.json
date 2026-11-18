@@ -1,0 +1,86 @@
+{
+	"format_version": "26.3",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"6": "valleycraft:block/fungus_block_crimson",
+		"8": "valleycraft:block/fungus_block_stem",
+		"9": "valleycraft:block/fungus_block_inside",
+		"particle": "valleycraft:block/mushroom_block_inside"
+	},
+	"elements": [
+		{
+			"from": [3, 6, 3],
+			"to": [13, 8, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 6, 7]},
+			"faces": {
+				"north": {"uv": [0, 3, 10, 5], "texture": "#6"},
+				"east": {"uv": [0, 3, 10, 5], "texture": "#6"},
+				"south": {"uv": [1, 3, 11, 5], "texture": "#6"},
+				"west": {"uv": [0, 3, 10, 5], "texture": "#6"},
+				"up": {"uv": [3, 2, 13, 12], "texture": "#6"},
+				"down": {"uv": [1, 0, 11, 10], "texture": "#6"}
+			}
+		},
+		{
+			"from": [7, 0, 7],
+			"to": [9, 5, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 1, 2, 6], "texture": "#8"},
+				"east": {"uv": [0, 1, 2, 6], "texture": "#8"},
+				"south": {"uv": [0, 1, 2, 6], "texture": "#8"},
+				"west": {"uv": [0, 1, 2, 6], "texture": "#8"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#9"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#9"}
+			}
+		},
+		{
+			"from": [4, 5, 4],
+			"to": [12, 6, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 5, 7]},
+			"faces": {
+				"north": {"uv": [1, 4, 9, 5], "texture": "#6"},
+				"east": {"uv": [1, 4, 9, 5], "texture": "#6"},
+				"south": {"uv": [2, 4, 10, 5], "texture": "#6"},
+				"west": {"uv": [1, 4, 9, 5], "texture": "#6"},
+				"up": {"uv": [2, 1, 10, 9], "texture": "#6"},
+				"down": {"uv": [2, 1, 10, 9], "texture": "#9"}
+			}
+		},
+		{
+			"from": [5, 8, 5],
+			"to": [11, 11, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 7]},
+			"faces": {
+				"north": {"uv": [1, 2, 7, 5], "texture": "#6"},
+				"east": {"uv": [1, 2, 7, 5], "texture": "#6"},
+				"south": {"uv": [2, 2, 8, 5], "texture": "#6"},
+				"west": {"uv": [1, 2, 7, 5], "texture": "#6"},
+				"up": {"uv": [2, 1, 8, 7], "texture": "#6"},
+				"down": {"uv": [2, 2, 8, 8], "texture": "#9"}
+			}
+		},
+		{
+			"from": [6, 11, 6],
+			"to": [10, 12, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 9, 7]},
+			"faces": {
+				"north": {"uv": [8, 2, 12, 3], "texture": "#6"},
+				"east": {"uv": [8, 2, 12, 3], "texture": "#6"},
+				"south": {"uv": [9, 2, 13, 3], "texture": "#6"},
+				"west": {"uv": [8, 2, 12, 3], "texture": "#6"},
+				"up": {"uv": [9, 3, 13, 7], "texture": "#6"},
+				"down": {"uv": [9, 3, 13, 7], "texture": "#9"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "crimson_fungus",
+			"origin": [7, 6, -9],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "harness",
+  "key": {
+    "#": "minecraft:light_gray_wool",
+    "G": "minecraft:glass_pane",
+    "L": "minecraft:saddle",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "LLL",
+    "G#G",
+    "I I"
+  ],
+  "result": {
+    "id": "minecraft:light_gray_harness"
+  }
+}
