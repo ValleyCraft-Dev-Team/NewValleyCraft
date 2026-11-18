@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": "minecraft:iron_ingot",
-    "X": "minecraft:redstone",
-    "W": "minecraft:water_bucket"
+    "#": "minecraft:iron_nugget",
+    "X": "valleycraft:compass_components"
+
   },
   "pattern": [
-    " X ",
-    " W ",
-    " # "
+    "###",
+    "#X#",
+    "###"
   ],
   "result": {
     "id": "minecraft:compass"

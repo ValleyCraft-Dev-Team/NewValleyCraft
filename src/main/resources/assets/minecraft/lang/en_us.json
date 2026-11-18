@@ -1,3 +1,5 @@
 {
-  "block.minecraft.bookshelf": "Scroll Shelf"
+  "block.minecraft.bookshelf": "Scroll Shelf",
+  "item.minecraft.quartz": "Quartz",
+  "block.minecraft.chiseled_bookshelf": "Book Shelf"
 }

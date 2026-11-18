@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "S": "minecraft:chiseled_stone_bricks",
+    "X": "minecraft:echo_shard",
+    "T": "minecraft:smooth_stone_slab"
+  },
+  "pattern": [
+    "#T#",
+    "#X#",
+    "#S#"
+  ],
+  "result": {
+    "id": "minecraft:lodestone"
+  }
+}
