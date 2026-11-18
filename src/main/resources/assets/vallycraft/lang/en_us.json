@@ -1,13 +1,13 @@
 {
-  "itemGroup.vallycraft": "Example Mod Tab",
-  "block.vallycraft.example_block": "Example Block",
-  "item.vallycraft.example_item": "Example Item",
+  "itemGroup.valleycraft": "Example Mod Tab",
+  "block.valleycraft.example_block": "Example Block",
+  "item.valleycraft.example_item": "Example Item",
 
-  "vallycraft.configuration.title": "VallyCraft Configs",
-  "vallycraft.configuration.section.vallycraft.common.toml": "VallyCraft Configs",
-  "vallycraft.configuration.section.vallycraft.common.toml.title": "VallyCraft Configs",
-  "vallycraft.configuration.items": "Item List",
-  "vallycraft.configuration.logDirtBlock": "Log Dirt Block",
-  "vallycraft.configuration.magicNumberIntroduction": "Magic Number Text",
-  "vallycraft.configuration.magicNumber": "Magic Number"
+  "valleycraft.configuration.title": "VallyCraft Configs",
+  "valleycraft.configuration.section.valleycraft.common.toml": "VallyCraft Configs",
+  "valleycraft.configuration.section.valleycraft.common.toml.title": "VallyCraft Configs",
+  "valleycraft.configuration.items": "Item List",
+  "valleycraft.configuration.logDirtBlock": "Log Dirt Block",
+  "valleycraft.configuration.magicNumberIntroduction": "Magic Number Text",
+  "valleycraft.configuration.magicNumber": "Magic Number"
 }

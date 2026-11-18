@@ -1,4 +1,4 @@
-package com.valleydevteam.vallycraft;
+package com.valleydevteam.valleycraft;
 
 import java.util.List;
 import java.util.Set;
