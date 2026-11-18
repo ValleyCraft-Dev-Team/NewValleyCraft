@@ -3,9 +3,9 @@
   "block.valleycraft.example_block": "Example Block",
   "item.valleycraft.example_item": "Example Item",
 
-  "valleycraft.configuration.title": "VallyCraft Configs",
-  "valleycraft.configuration.section.valleycraft.common.toml": "VallyCraft Configs",
-  "valleycraft.configuration.section.valleycraft.common.toml.title": "VallyCraft Configs",
+  "valleycraft.configuration.title": "ValleyCraft Configs",
+  "valleycraft.configuration.section.valleycraft.common.toml": "ValleyCraft Configs",
+  "valleycraft.configuration.section.valleycraft.common.toml.title": "ValleyCraft Configs",
   "valleycraft.configuration.items": "Item List",
   "valleycraft.configuration.logDirtBlock": "Log Dirt Block",
   "valleycraft.configuration.magicNumberIntroduction": "Magic Number Text",

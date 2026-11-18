@@ -1,4 +1,4 @@
-# VallyCraft
+# ValleyCraft
 
 
 Installation information
