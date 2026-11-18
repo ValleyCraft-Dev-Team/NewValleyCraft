@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "valleycraft:dowel",
+    "X": "valleycraft:waxed_string",
+    "N": "minecraft:iron_nugget",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "  #",
+    " #X",
+    "#IN"
+  ],
+  "result": {
+    "id": "minecraft:fishing_rod"
+  }
+}

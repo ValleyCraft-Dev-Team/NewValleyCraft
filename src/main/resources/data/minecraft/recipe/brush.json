@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "I": "valleycraft:dowel",
+    "X": "#valleycraft:feathers"
+  },
+  "pattern": [
+    "XXX",
+    " # ",
+    " I "
+  ],
+  "result": {
+    "id": "minecraft:brush"
+  }
+}

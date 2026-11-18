@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "X": "minecraft:leather",
+    "S": "valleycraft:leather_strap"
+  },
+  "pattern": [
+    "XXX",
+    "S#S",
+    "# #"
+  ],
+  "result": {
+    "id": "minecraft:saddle"
+  }
+}

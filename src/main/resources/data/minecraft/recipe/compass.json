@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "X": "minecraft:redstone",
+    "W": "minecraft:water_bucket"
+  },
+  "pattern": [
+    " X ",
+    " W ",
+    " # "
+  ],
+  "result": {
+    "id": "minecraft:compass"
+  }
+}
