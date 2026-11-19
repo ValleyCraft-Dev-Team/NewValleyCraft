@@ -16,7 +16,7 @@ public enum ModCreativeTabs implements IdProvider {
     example_tab(() -> builder()
             .title(Component.translatable("itemGroup.valleycraft")) // The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(ModItems.example_item::getStack)
+            .icon(ModItems.fiber::getStack)
             .displayItems(CreativeTabItems::exampleTab).build());
 
     ModCreativeTabs(Supplier<CreativeModeTab> tabSup) {

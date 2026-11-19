@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "valleycraft:item/mushroom_fried_rice"
+  }
+}

@@ -18,8 +18,7 @@ import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 public enum ModBlocks implements IdProvider, ItemLike {
-    example_block(p -> p,p -> p),
-    example_block_two(p -> p.instabreak().noCollision());
+    ;
 
     ModBlocks() {
         this(p -> p);

@@ -7,6 +7,8 @@ import static com.valleydevteam.valleycraft.content.ModItems.*;
 /** @see ModCreativeTabs to register it */
 public interface CreativeTabItems {
     static void exampleTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
-        output.accept(example_item);
+        for (var item : ModItems.values()) {
+            output.accept(item);
+        }
     }
 }
