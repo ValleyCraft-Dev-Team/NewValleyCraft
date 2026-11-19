@@ -85,7 +85,7 @@ public class ValleyCraft {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.example_block);
+//            event.accept(ModBlocks.example_block)
         }
     }
 

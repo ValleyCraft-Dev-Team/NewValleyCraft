@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "valleycraft:item/dark_acorn_seed"
+  }
+}
