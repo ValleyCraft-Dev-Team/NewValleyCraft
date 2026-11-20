@@ -1,5 +1,4 @@
 {
-  "block.valleycraft.example_block": "Example Block",
   "item.valleycraft.abysswatcher": "Abysswatcher",
   "item.valleycraft.acacia_seed": "Acacia Seed",
   "item.valleycraft.acorn_seed": "Acorn Seed",
@@ -134,7 +133,6 @@
   "item.valleycraft.endermite_carapace": "Endermite Carapace",
   "item.valleycraft.endstone_rock": "Endstone Rock",
   "item.valleycraft.etheric_dust": "Etheric Dust",
-  "item.valleycraft.example_item": "Example Item",
   "item.valleycraft.fairy_bottle": "Fairy Bottle",
   "item.valleycraft.fairy_bread": "Fairy Bread",
   "item.valleycraft.farmers_straw_hat": "Farmers Straw Hat",
@@ -333,10 +331,8 @@
   "item.valleycraft.wooden_knife": "Wooden Knife",
   "item.valleycraft.wooden_sickle": "Wooden Sickle",
   "itemGroup.valleycraft": "ValleyCraft Tab",
-  "valleycraft.configuration.items": "Item List",
-  "valleycraft.configuration.logDirtBlock": "Log Dirt Block",
-  "valleycraft.configuration.magicNumber": "Magic Number",
-  "valleycraft.configuration.magicNumberIntroduction": "Magic Number Text",
+  "valleycraft.configuration.override_minecraft_loot_tables": "Override Minecraft Loot Tables",
+  "valleycraft.configuration.override_minecraft_recipes": "Override Minecraft Recipes",
   "valleycraft.configuration.section.valleycraft.common.toml": "ValleyCraft Configs",
   "valleycraft.configuration.section.valleycraft.common.toml.title": "ValleyCraft Configs",
   "valleycraft.configuration.title": "ValleyCraft Configs"

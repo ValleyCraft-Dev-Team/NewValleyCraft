@@ -9,14 +9,9 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 
-import java.util.Locale;
-
-import static com.valleydevteam.valleycraft.content.ModItems.*;
-import static com.valleydevteam.valleycraft.content.ModBlocks.*;
-
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
-        super(output, ValleyCraft.MODID);
+        super(output, ValleyCraft.MOD_ID);
     }
 
     @Override

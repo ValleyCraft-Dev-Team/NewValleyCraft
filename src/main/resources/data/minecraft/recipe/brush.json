@@ -4,7 +4,7 @@
   "key": {
     "#": "minecraft:copper_ingot",
     "I": "valleycraft:dowel",
-    "X": "#valleycraft:feathers"
+    "X": "minecraft:feather"
   },
   "pattern": [
     "XXX",
