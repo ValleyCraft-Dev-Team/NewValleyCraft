@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "valleycraft:item/urn"
+    "layer0": "valleycraft:item/deepslate_rock"
   }
 }
