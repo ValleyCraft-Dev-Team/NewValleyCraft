@@ -114,9 +114,6 @@ public enum ModBlocks implements IdProvider, ItemLike {
     }
 
     public ItemStack getDefaultStack() {
-        if (item == null) {
-            throw new IllegalStateException("Items are not yet supported");
-        }
         return asItem().getDefaultInstance();
     }
 
