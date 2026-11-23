@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "valleycraft:item/ancient_camera"
+    "layer0": "valleycraft:item/bunk_bed_ladder_frame"
   }
 }

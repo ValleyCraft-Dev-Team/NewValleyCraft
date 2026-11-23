@@ -13,11 +13,11 @@ import java.util.function.Supplier;
 
 /** @see CreativeTabItems for items */
 public enum ModCreativeTabs implements IdProvider {
-    example_tab(() -> builder()
+    valleycraft_tab(() -> builder()
             .title(Component.translatable("itemGroup.valleycraft")) // The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(ModItems.fiber::getStack)
-            .displayItems(CreativeTabItems::exampleTab).build());
+            .displayItems(CreativeTabItems::valleyCraftTab).build());
 
     ModCreativeTabs(Supplier<CreativeModeTab> tabSup) {
         this.id = ValleyCraft.makeId(name());

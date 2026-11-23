@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "valleycraft:item/dark_acorn_seed"
+    "model": "valleycraft:item/small_oak_sapling"
   }
 }

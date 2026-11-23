@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "small_sapling_stage=0": {
+      "model": "valleycraft:block/all_small_saplings"
+    },
+    "small_sapling_stage=1": {
+      "model": "valleycraft:block/small_acacia_sapling_1"
+    },
+    "small_sapling_stage=2": {
+      "model": "valleycraft:block/small_acacia_sapling_2"
+    },
+    "small_sapling_stage=3": {
+      "model": "valleycraft:block/small_acacia_sapling_3"
+    }
+  }
+}
