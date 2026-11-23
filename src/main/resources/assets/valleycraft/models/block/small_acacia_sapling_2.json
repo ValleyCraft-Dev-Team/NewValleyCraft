@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "valleycraft:block/small_acacia_sapling_2"
+  }
+}

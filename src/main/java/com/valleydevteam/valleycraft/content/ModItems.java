@@ -14,21 +14,19 @@ import java.util.function.UnaryOperator;
 
 public enum ModItems implements IdProvider, ItemLike {
     abysswatcher,
-    acacia_seed,
-    acorn_seed,
     agitator,
     amethistle,
     amethistle_salad,
     amethyst_talisman,
+    amethyst_spear_tip,
     ancient_boots,
-    ancient_camera,
+    ancient_camera(true),
     ancient_coin,
     ancient_scroll,
     ancient_shoes,
     apple_juice,
     apple_pie_dough,
     apple_pie,
-    apple_tree_seeds,
     applewood_door,
     applewood_sign,
     atole,
@@ -46,9 +44,9 @@ public enum ModItems implements IdProvider, ItemLike {
     baked_pumpkin_slice,
     baked_sweet_berries,
     bat_wing,
+    bamboo_staff(true),
     beef_stew,
     belt,
-    birch_seed,
     bonefin,
     bone_withered,
     bow_leveled,
@@ -64,6 +62,7 @@ public enum ModItems implements IdProvider, ItemLike {
     bucket_of_red_porgy,
     bucket_of_sardine,
     bucket_of_stonetosser_minnow,
+    bunk_bed_ladder_frame,
     cake_dough,
     cake_slice,
     calibrated_clock_components,
@@ -122,7 +121,6 @@ public enum ModItems implements IdProvider, ItemLike {
     cutlass,
     cutlass_restored,
     daerdri_talisman,
-    dark_acorn_seed,
     daub,
     deepslate_rock,
     diamond_coated_metal_plate,
@@ -243,7 +241,6 @@ public enum ModItems implements IdProvider, ItemLike {
     pillager_boots,
     pillager_clothing,
     pillager_tunic,
-    pine_cone_seeds,
     plant_fiber_canvas,
     plant_fiber_string,
     puffball,
@@ -343,18 +340,32 @@ public enum ModItems implements IdProvider, ItemLike {
     waxed_string,
     wood_dowel,
     wooden_knife,
-    wooden_sickle;
+    wooden_sickle,
+    wooden_staff(true);
 
 
     ModItems() {
-        this(p -> p);
+        this(false, p -> p);
     }
 
     ModItems(UnaryOperator<Item.Properties> propsFun) {
-        this(Item::new, propsFun);
+        this(false, Item::new, propsFun);
     }
 
     ModItems(Function<Item.Properties, ? extends Item> itemFun, UnaryOperator<Item.Properties> itemPropsFun) {
+        this(false, itemFun, itemPropsFun);
+    }
+
+    ModItems(boolean useCustomModel) {
+        this(useCustomModel, p -> p);
+    }
+
+    ModItems(boolean useCustomModel, UnaryOperator<Item.Properties> propsFun) {
+        this(useCustomModel, Item::new, propsFun);
+    }
+
+    ModItems(boolean useCustomModel, Function<Item.Properties, ? extends Item> itemFun, UnaryOperator<Item.Properties> itemPropsFun) {
+        this.useDataGen = !useCustomModel;
         this.id = ValleyCraft.makeId(name());
         this.itemFun = itemFun;
         this.itemPropsFun = itemPropsFun;
@@ -370,8 +381,10 @@ public enum ModItems implements IdProvider, ItemLike {
         item = items.registerItem(name(), itemFun, itemPropsFun);
     }
 
+
     private DeferredItem<Item> item;
     private final Identifier id;
+    private final boolean useDataGen;
     private final Function<Item.Properties, ? extends Item> itemFun;
     private final UnaryOperator<Item.Properties> itemPropsFun;
 
@@ -395,5 +408,9 @@ public enum ModItems implements IdProvider, ItemLike {
 
     public ItemStack getStack() {
         return get().getDefaultInstance();
+    }
+
+    public boolean useDataGen() {
+        return useDataGen;
     }
 }
