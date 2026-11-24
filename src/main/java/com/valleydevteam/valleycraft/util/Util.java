@@ -1,11 +1,21 @@
 package com.valleydevteam.valleycraft.util;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.material.Fluids;
 
 import javax.annotation.Nullable;
 import java.util.Set;
 
+import static io.netty.util.ResourceLeakDetector.getLevel;
+
 public class Util {
+
+    public static boolean inWater(BlockPlaceContext context) {
+        return context.getLevel().getFluidState(context.getClickedPos()).is(Fluids.WATER);
+    }
+
+
     // List of minor words that should stay lowercase
     private static final Set<String> minorWords = Set.of(
             "a", "an", "the", "of", "in", "on", "at", "and", "but", "for", "or", "nor", "to", "with", "by"

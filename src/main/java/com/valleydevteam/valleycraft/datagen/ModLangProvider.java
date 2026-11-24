@@ -19,25 +19,27 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        var itemAutoLang = new AutoLang<Item>();
+        var autoLang = new AutoLang();
 
         for (var item : ModItems.values()) {
-            itemAutoLang.put(item.asItem(), Util.toText(item.getId()));
+            autoLang.put(item.asItem(), Util.toText(item.getId()));
         }
 
         for (var block : ModBlocks.values()) {
             if (block.hasItem()) {
-                itemAutoLang.put(block.asItem(), Util.toText(block.getId()));
+                autoLang.put(block.asItem(), Util.toText(block.getItem().getId()));
+            } else {
+                autoLang.put(block.get(), Util.toText(block.getId()));
             }
         }
 
-        itemAutoLang.put(ModBlocks.small_acacia_sapling.asItem(), "Acacia Seed");
-        itemAutoLang.put(ModBlocks.small_birch_sapling.asItem(), "Birch Seed");
-        itemAutoLang.put(ModBlocks.small_dark_oak_sapling.asItem(), "Dark Acorn Seed");
-        itemAutoLang.put(ModBlocks.small_oak_sapling.asItem(), "Acorn Seed");
-        itemAutoLang.put(ModBlocks.small_spruce_sapling.asItem(), "Pine Cone Seeds");
+        autoLang.put(ModBlocks.small_acacia_sapling.asItem(), "Acacia Seed");
+        autoLang.put(ModBlocks.small_birch_sapling.asItem(), "Birch Seed");
+        autoLang.put(ModBlocks.small_dark_oak_sapling.asItem(), "Dark Acorn Seed");
+        autoLang.put(ModBlocks.small_oak_sapling.asItem(), "Acorn Seed");
+        autoLang.put(ModBlocks.small_spruce_sapling.asItem(), "Pine Cone Seeds");
 
-        itemAutoLang.addAll();
+        autoLang.addAll();
 
         add("itemGroup.valleycraft", "ValleyCraft Tab");
         add("valleycraft.configuration.title", "ValleyCraft Configs");
@@ -47,10 +49,10 @@ public class ModLangProvider extends LanguageProvider {
         add("valleycraft.configuration.override_minecraft_loot_tables", "Override Minecraft Loot Tables");
     }
 
-    private class AutoLang<T> {
-        final HashMap<T, String> autoLang = new HashMap<>();
+    private class AutoLang {
+        final HashMap<Object, String> autoLang = new HashMap<>();
 
-        void put(T key, String text) {
+        void put(Object key, String text) {
             autoLang.put(key, text);
         }
 

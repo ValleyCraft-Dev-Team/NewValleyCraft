@@ -1,5 +1,6 @@
 package com.valleydevteam.valleycraft;
 
+import com.valleydevteam.valleycraft.datagen.ModBlockTagsProvider;
 import com.valleydevteam.valleycraft.datagen.ModLangProvider;
 import com.valleydevteam.valleycraft.datagen.ModModelProvider;
 import com.valleydevteam.valleycraft.datagen.ValleyCraftBlockLoot;
@@ -20,9 +21,11 @@ public class ModDataGen {
     public static void gatherClientData(GatherDataEvent.Client event) {
         var generator = event.getGenerator();
         var output = generator.getPackOutput();
+        var lookup = event.getReloadableLookupProvider();
 
         generator.addProvider(true, new ModLangProvider(output));
         generator.addProvider(true, new ModModelProvider(output));
+        generator.addProvider(true, new ModBlockTagsProvider(output, lookup));
     }
 
     @SubscribeEvent

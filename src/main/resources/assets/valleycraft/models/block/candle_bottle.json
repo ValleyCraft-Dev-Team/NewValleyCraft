@@ -2,6 +2,7 @@
 	"format_version": "26.3",
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
+	"parent": "block/block",
 	"textures": {
 		"0": "valleycraft:block/potion_bottle_block",
 		"particle": "block/glass"

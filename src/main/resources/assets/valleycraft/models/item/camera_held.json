@@ -2,9 +2,10 @@
 	"format_version": "26.3",
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
+	"parent": "block/block",
 	"textures": {
-		"0": "valleycraft:item/ancient_camera",
-		"particle": "valleycraft:item/ancient_camera"
+		"0": "valleycraft:block/ancient_camera",
+		"particle": "valleycraft:block/ancient_camera"
 	},
 	"elements": [
 		{

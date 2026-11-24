@@ -3,7 +3,7 @@
 	"texture_size": [32, 32],
 	"ambientocclusion": false,
 	"textures": {
-		"texture": "wilder_horizons:block/rope",
+		"texture": "valleycraft:block/rope",
 		"particle": "#texture"
 	},
 	"elements": [

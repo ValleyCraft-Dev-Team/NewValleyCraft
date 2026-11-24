@@ -1,15 +1,15 @@
 {
   "variants": {
-    "small_sapling_stage=0": {
+    "age=0": {
       "model": "valleycraft:block/all_small_saplings"
     },
-    "small_sapling_stage=1": {
+    "age=1": {
       "model": "valleycraft:block/small_oak_sapling_1"
     },
-    "small_sapling_stage=2": {
+    "age=2": {
       "model": "valleycraft:block/small_oak_sapling_2"
     },
-    "small_sapling_stage=3": {
+    "age=3": {
       "model": "valleycraft:block/small_oak_sapling_3"
     }
   }

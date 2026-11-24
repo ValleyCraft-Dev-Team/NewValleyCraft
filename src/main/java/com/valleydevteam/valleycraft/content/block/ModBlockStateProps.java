@@ -1,7 +1,7 @@
 package com.valleydevteam.valleycraft.content.block;
 
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-public class ModBlockStateProps {
-    public static final IntegerProperty smallSaplingStage = IntegerProperty.create("small_sapling_stage", 0, 3);
+public interface ModBlockStateProps {
+    BooleanProperty pearl = BooleanProperty.create("pearl");
 }

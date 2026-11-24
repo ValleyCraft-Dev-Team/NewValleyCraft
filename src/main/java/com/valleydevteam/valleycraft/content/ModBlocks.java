@@ -1,20 +1,22 @@
 package com.valleydevteam.valleycraft.content;
 
 import com.valleydevteam.valleycraft.ValleyCraft;
-import com.valleydevteam.valleycraft.content.block.SmallSapling;
+import com.valleydevteam.valleycraft.content.block.*;
 import com.valleydevteam.valleycraft.util.IdProvider;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagEntry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -24,11 +26,17 @@ import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 public enum ModBlocks implements IdProvider, ItemLike {
-    small_acacia_sapling(CustomModel.block, p -> new SmallSapling(() -> Blocks.ACACIA_SAPLING, p), SmallSapling::defaultProps, p -> p),
-    small_birch_sapling(CustomModel.block, p -> new SmallSapling(() -> Blocks.BIRCH_SAPLING, p), SmallSapling::defaultProps, p -> p),
-    small_oak_sapling(CustomModel.block, p -> new SmallSapling(() -> Blocks.OAK_SAPLING, p), SmallSapling::defaultProps, p -> p),
-    small_dark_oak_sapling(CustomModel.block, p -> new SmallSapling(() -> Blocks.DARK_OAK_SAPLING, p), SmallSapling::defaultProps, p -> p),
-    small_spruce_sapling(CustomModel.block, p -> new SmallSapling(() -> Blocks.SPRUCE_SAPLING, p), SmallSapling::defaultProps, p -> p);
+    small_acacia_sapling(CustomModel.block, p -> new SmallSaplingBlock(() -> Blocks.ACACIA_SAPLING, p), SmallSaplingBlock::defaultProps, p -> p),
+    small_birch_sapling(CustomModel.block, p -> new SmallSaplingBlock(() -> Blocks.BIRCH_SAPLING, p), SmallSaplingBlock::defaultProps, p -> p),
+    small_oak_sapling(CustomModel.block, p -> new SmallSaplingBlock(() -> Blocks.OAK_SAPLING, p), SmallSaplingBlock::defaultProps, p -> p),
+    small_dark_oak_sapling(CustomModel.block, p -> new SmallSaplingBlock(() -> Blocks.DARK_OAK_SAPLING, p), SmallSaplingBlock::defaultProps, p -> p),
+    small_spruce_sapling(CustomModel.block, p -> new SmallSaplingBlock(() -> Blocks.SPRUCE_SAPLING, p), SmallSaplingBlock::defaultProps, p -> p),
+    brown_mushroom_grow_lamp(CustomModel.both, BigMushroomBlock::new, p -> BigMushroomBlock.defaultProps(p).lightLevel(s -> 14).mapColor(MapColor.DIRT), p -> p),
+    ancient_camera(CustomModel.both, CameraDisplayedBlock::new, CameraDisplayedBlock::defaultProps, p -> p),
+    candle_bottle(CustomModel.both, CandleBottleBlock::new, CandleBottleBlock::defaultProps, p -> p),
+    clam(CustomModel.block, ClamBlock::new, ClamBlock::defaultProps, p -> p),
+    rope_horizontal(CustomModel.both, RopeHorizontalBlock::new, RopeBlockExt::defaultProps),
+    rope_vertical(CustomModel.both, RopeVerticalBlock::new, RopeBlockExt::defaultProps);
 
     ModBlocks(CustomModel model) {
         this(model, p -> p);
@@ -47,7 +55,7 @@ public enum ModBlocks implements IdProvider, ItemLike {
     }
 
     ModBlocks(CustomModel model, Function<BlockBehaviour.Properties, ? extends Block> blockFun, UnaryOperator<BlockBehaviour.Properties> blockPropsFun) {
-        this(model, blockFun, blockPropsFun, p -> p);
+        this(model, blockFun, blockPropsFun, null);
     }
 
 
@@ -85,19 +93,16 @@ public enum ModBlocks implements IdProvider, ItemLike {
     private final UnaryOperator<BlockBehaviour.Properties> blockPropsFun;
     private final @Nullable UnaryOperator<Item.Properties> itemPropsFun;
 
-    public DeferredItem<BlockItem> getItem() {
-        if (item == null) {
-            throw new IllegalStateException("Items are not yet supported");
-        }
-        return item;
-    }
-
     public Block get() {
         return block.get();
     }
 
     public DeferredBlock<Block> getBlock() {
         return block;
+    }
+
+    public DeferredItem<? extends Item> getItem() {
+        return item == null ? ModItems.get(BuiltInRegistries.ITEM.getKey(asItem()).getPath()) : item;
     }
 
     @Override
@@ -107,9 +112,6 @@ public enum ModBlocks implements IdProvider, ItemLike {
 
     @Override
     public Item asItem() {
-        if (item == null) {
-            throw new IllegalStateException("Items are not yet supported");
-        }
         return block.asItem();
     }
 
@@ -126,6 +128,14 @@ public enum ModBlocks implements IdProvider, ItemLike {
     }
 
     public boolean hasItem() {
-        return item != null;
+        return asItem() != null;
+    }
+
+    public ResourceKey<Block> getBlockRK() {
+        return BuiltInRegistries.BLOCK.getResourceKey(block.get()).orElseThrow();
+    }
+
+    public ResourceKey<Item> getItemRK() {
+        return BuiltInRegistries.ITEM.getResourceKey(block.asItem()).orElseThrow();
     }
 }
