@@ -9,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,8 +21,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ClamBlock extends HorizontalBlockWithWater {
 
-    public static Properties defaultProps(Properties props) {
-        return props.pushReaction(PushReaction.POPPED).sound(SoundType.CORAL_BLOCK);
+    public static Properties defaultProps() {
+        return BlockBehaviour.Properties.of().pushReaction(PushReaction.POPPED).sound(SoundType.CORAL_BLOCK);
     }
 
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;

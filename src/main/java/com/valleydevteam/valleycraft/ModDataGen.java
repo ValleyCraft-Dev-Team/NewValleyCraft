@@ -1,9 +1,6 @@
 package com.valleydevteam.valleycraft;
 
-import com.valleydevteam.valleycraft.datagen.ModBlockTagsProvider;
-import com.valleydevteam.valleycraft.datagen.ModLangProvider;
-import com.valleydevteam.valleycraft.datagen.ModModelProvider;
-import com.valleydevteam.valleycraft.datagen.ValleyCraftBlockLoot;
+import com.valleydevteam.valleycraft.datagen.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -26,6 +23,7 @@ public class ModDataGen {
         generator.addProvider(true, new ModLangProvider(output));
         generator.addProvider(true, new ModModelProvider(output));
         generator.addProvider(true, new ModBlockTagsProvider(output, lookup));
+        generator.addProvider(true, new ModItemTagsProvider(output, lookup));
     }
 
     @SubscribeEvent

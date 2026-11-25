@@ -8,6 +8,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -15,8 +16,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CameraDisplayedBlock extends HorizontalBlockWithWater {
 
-    public static Properties defaultProps(Properties props) {
-        return props.instabreak().noOcclusion().pushReaction(PushReaction.POPPED);
+    public static Properties defaultProps() {
+        return BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.POPPED);
     }
 
     private static final VoxelShape SHAPE = Block.column(12.0, 0.0, 4.0);

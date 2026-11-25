@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "valleycraft:glowsquid_ink_lantern"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "valleycraft:blocks/glowsquid_ink_lantern"
+}

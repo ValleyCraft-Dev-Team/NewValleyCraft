@@ -13,8 +13,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LanternBlock;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ModModelProvider extends ModelProvider {
@@ -30,9 +30,24 @@ public class ModModelProvider extends ModelProvider {
             }
         }
 
-        for (var block : ModBlocks.values()) {
-            if (block.itemDataGen()) {
-                switch (block) {
+        woodFamily(blockModels, ModBlocks.applewood_log, ModBlocks.applewood_wood, ModBlocks.stripped_applewood_log,
+                ModBlocks.stripped_applewood_wood, ModBlocks.applewood_planks, ModBlocks.applewood_slab,
+                ModBlocks.applewood_stairs, ModBlocks.applewood_button, ModBlocks.applewood_fence, ModBlocks.applewood_fence_gate);
+
+        // Auto generate block and item models
+        for (var blockEnum : ModBlocks.values()) {
+            var name = blockEnum.name();
+            var block = blockEnum.get();
+            if (blockEnum.blockAutoGen()) {
+                switch (blockEnum.model) {
+                    case cross -> blockModels.createCrossBlockWithDefaultItem(block, BlockModelGenerators.PlantType.NOT_TINTED);
+                    case fullCube -> blockModels.createTrivialCube(block);
+                }
+                if (block instanceof LanternBlock) {
+                    blockModels.createLantern(block);
+                }
+            } else if (blockEnum.itemAutoGen()) {
+                switch (blockEnum) {
                     case small_acacia_sapling -> item(block, "acacia_seed", itemModels);
                     case small_birch_sapling -> item(block, "birch_seed", itemModels);
                     case small_dark_oak_sapling -> item(block, "dark_acorn_seed", itemModels);
@@ -42,14 +57,12 @@ public class ModModelProvider extends ModelProvider {
                 }
             }
         }
-
-
     }
 
-    private static void block(Block block,
-                              BlockModelGenerators blockModels,
-                              ItemModelGenerators itemModels) {
-        itemModels.generateFlatItem(block.asItem(), ModelTemplates.FLAT_ITEM);
+    private static void woodFamily(BlockModelGenerators models, ModBlocks log, ModBlocks wood, ModBlocks sLog, ModBlocks sWood, ModBlocks planks, ModBlocks slab, ModBlocks stairs, ModBlocks button, ModBlocks fence, ModBlocks fenceGate) {
+        models.woodProvider(log.get()).logWithHorizontal(log.get()).wood(wood.get());
+        models.woodProvider(sLog.get()).logWithHorizontal(sLog.get()).wood(sWood.get());
+        models.family(planks.get()).slab(slab.get()).stairs(stairs.get()).button(button.get()).fence(fence.get()).fenceGate(fenceGate.get());
     }
 
     private static void item(ItemLike item, ItemModelGenerators models) {

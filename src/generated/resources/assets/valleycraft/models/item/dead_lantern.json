@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "valleycraft:item/redstone_lantern"
+    "layer0": "valleycraft:item/dead_lantern"
   }
 }

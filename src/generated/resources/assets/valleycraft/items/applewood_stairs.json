@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "valleycraft:item/redstone_lantern"
+    "model": "valleycraft:block/applewood_stairs"
   }
 }

@@ -7,6 +7,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,8 +21,8 @@ import java.util.function.Supplier;
 
 public class SmallSaplingBlock extends VegetationBlock implements BonemealableBlock {
 
-    public static Properties defaultProps(Properties props) {
-        return props.mapColor(MapColor.PLANT)
+    public static Properties defaultProps() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT)
                 .noCollision()
                 .randomTicks()
                 .instabreak()

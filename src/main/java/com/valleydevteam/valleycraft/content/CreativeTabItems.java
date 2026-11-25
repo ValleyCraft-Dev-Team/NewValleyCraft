@@ -1,22 +1,26 @@
 package com.valleydevteam.valleycraft.content;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 /** @see ModCreativeTabs to register it */
 public interface CreativeTabItems {
     static void valleyCraftTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
-        var items = new ArrayList<Enum<? extends ItemLike>>(1000);
-        items.addAll(Arrays.asList(ModItems.values()));
+        var items = new HashSet<Item>(1000);
         for (var block : ModBlocks.values()) {
             if (block.hasItem()) {
-                items.add(block);
+                items.add(block.asItem());
             }
         }
-        output.acceptAll(items.stream().sorted(Comparator.comparing(Enum::name)).map(e -> ((ItemLike)e).asItem().getDefaultInstance()).toList());
+        items.addAll(Arrays.stream(ModItems.values()).map(ItemLike::asItem).toList());
+        addAllOrdered(items, output);
+    }
+
+    static void addAllOrdered(Collection<Item> collection, CreativeModeTab.Output output) {
+        output.acceptAll(collection.stream().sorted(Comparator.comparing(i -> BuiltInRegistries.ITEM.getKey(i).getPath())).map(Item::getDefaultInstance).toList());
     }
 }

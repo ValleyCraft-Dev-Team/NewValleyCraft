@@ -4,6 +4,8 @@ import com.mojang.serialization.MapCodec;
 import com.valleydevteam.valleycraft.content.ModCreativeTabs;
 import com.valleydevteam.valleycraft.content.ModBlocks;
 import com.valleydevteam.valleycraft.content.ModItems;
+import com.valleydevteam.valleycraft.content.tag.ModBlockTags;
+import com.valleydevteam.valleycraft.content.tag.ModItemTags;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
@@ -37,6 +39,7 @@ public class ValleyCraft {
     public static final String MOD_ID = "valleycraft";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
+
     // Create a Deferred Register to hold Blocks which will all be registered under the "valleycraft" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
     // Create a Deferred Register to hold Items which will all be registered under the "valleycraft" namespace
@@ -46,6 +49,8 @@ public class ValleyCraft {
 
     static {
         Config.init();
+        ModBlockTags.init();
+        ModItemTags.init();
         ModBlocks.init(BLOCKS, ITEMS);
         ModItems.init(ITEMS);
         ModCreativeTabs.init(CREATIVE_MODE_TABS);
@@ -83,16 +88,15 @@ public class ValleyCraft {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.apple_pie);
-        }
+//        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+//            event.accept(ModItems.apple_pie);
+//        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
     }
 
     public static Identifier makeId(String path) {

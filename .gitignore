@@ -1,5 +1,7 @@
 ### Other ###
 desktop.ini
+/assets/
+/data/
 
 ### Gradle ###
 .gradle

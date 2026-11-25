@@ -3,14 +3,19 @@ package com.valleydevteam.valleycraft.content.block;
 import com.valleydevteam.valleycraft.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -21,6 +26,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
@@ -31,8 +39,8 @@ public class CandleBottleBlock extends AbstractCandleBlock implements SimpleWate
     private static final VoxelShape SHAPE = Block.column(6.0, 0.0, 9.0);
     private static final List<Vec3> PARTICLE_OFFSETS = List.of(new Vec3(0.5, 5/16d, 0.5));
 
-    public static Properties defaultProps(Properties props) {
-        return props.strength(0.2F).sound(SoundType.GLASS).lightLevel(s -> s.getValue(LIT) ? 6 : 0);
+    public static Properties defaultProps() {
+        return BlockBehaviour.Properties.of().strength(0.2F).sound(SoundType.GLASS).lightLevel(s -> s.getValue(LIT) ? 6 : 0);
     }
 
     public CandleBottleBlock(Properties props) {
@@ -42,6 +50,22 @@ public class CandleBottleBlock extends AbstractCandleBlock implements SimpleWate
 
     protected BlockState newDefaultState() {
         return stateDefinition.any().setValue(LIT, true).setValue(WATERLOGGED, false);
+    }
+
+    @Nullable
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+        ItemStack itemStack = context.getItemInHand();
+        if (!itemStack.canPerformAction(itemAbility)) {
+            return null;
+        }
+
+        if (ItemAbilities.FIRESTARTER_LIGHT == itemAbility) {
+            if (canBeLit(state)) {
+                return state.setValue(BlockStateProperties.LIT, true);
+            }
+        }
+
+        return null;
     }
 
     @Override

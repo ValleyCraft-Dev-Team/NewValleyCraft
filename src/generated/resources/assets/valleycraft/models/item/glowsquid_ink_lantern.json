@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "valleycraft:item/glowsquid_lantern"
+    "layer0": "valleycraft:item/glowsquid_ink_lantern"
   }
 }

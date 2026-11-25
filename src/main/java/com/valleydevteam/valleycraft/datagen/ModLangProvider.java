@@ -45,8 +45,6 @@ public class ModLangProvider extends LanguageProvider {
         add("valleycraft.configuration.title", "ValleyCraft Configs");
         add("valleycraft.configuration.section.valleycraft.common.toml", "ValleyCraft Configs");
         add("valleycraft.configuration.section.valleycraft.common.toml.title", "ValleyCraft Configs");
-        add("valleycraft.configuration.override_minecraft_recipes", "Override Minecraft Recipes");
-        add("valleycraft.configuration.override_minecraft_loot_tables", "Override Minecraft Loot Tables");
     }
 
     private class AutoLang {
