@@ -30,11 +30,20 @@ public class ModModelProvider extends ModelProvider {
             }
         }
 
-        item(ModBlocks.small_acacia_sapling, "acacia_seed", itemModels);
-        item(ModBlocks.small_birch_sapling, "birch_seed", itemModels);
-        item(ModBlocks.small_dark_oak_sapling, "dark_acorn_seed", itemModels);
-        item(ModBlocks.small_oak_sapling, "acorn_seed", itemModels);
-        item(ModBlocks.small_spruce_sapling, "pine_cone_seeds", itemModels);
+        for (var block : ModBlocks.values()) {
+            if (block.itemDataGen()) {
+                switch (block) {
+                    case small_acacia_sapling -> item(block, "acacia_seed", itemModels);
+                    case small_birch_sapling -> item(block, "birch_seed", itemModels);
+                    case small_dark_oak_sapling -> item(block, "dark_acorn_seed", itemModels);
+                    case small_oak_sapling -> item(block, "acorn_seed", itemModels);
+                    case small_spruce_sapling -> item(block, "pine_cone_seeds", itemModels);
+                    default -> item(block.asItem(), itemModels);
+                }
+            }
+        }
+
+
     }
 
     private static void block(Block block,

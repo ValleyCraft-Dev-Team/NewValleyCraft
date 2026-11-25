@@ -1,17 +1,23 @@
 package com.valleydevteam.valleycraft.content;
 
 import com.valleydevteam.valleycraft.ValleyCraft;
+import com.valleydevteam.valleycraft.content.item.RopeItem;
 import com.valleydevteam.valleycraft.util.IdProvider;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -152,7 +158,6 @@ public enum ModItems implements IdProvider, ItemLike {
     amethyst_talisman,
     amethyst_spear_tip,
     ancient_boots,
-    ancient_camera(true),
     ancient_coin,
     ancient_scroll,
     ancient_shoes,
@@ -191,7 +196,6 @@ public enum ModItems implements IdProvider, ItemLike {
     chickadee_feather,
     chicken_pot_pie_dough,
     chocolate_cake_dough,
-    clam,
     clam_shell_breastplate,
     cloth_segment,
     cobblestone_rock,
@@ -297,7 +301,7 @@ public enum ModItems implements IdProvider, ItemLike {
     ribcage_withered,
     rice_seeds,
     rock,
-    rope_bundle,
+    rope_bundle(false, RopeItem::new, p -> p),
     rough_diamond,
     rough_emerald,
     runecalling_tome,
@@ -349,6 +353,8 @@ public enum ModItems implements IdProvider, ItemLike {
     wooden_sickle,
     wooden_staff(true);
 
+    private static final HashMap<String, DeferredItem<Item>> itemMap = new HashMap<>();
+
 
     ModItems() {
         this(false, p -> p);
@@ -380,6 +386,7 @@ public enum ModItems implements IdProvider, ItemLike {
     public static void init(DeferredRegister.Items items) {
         for (var item : values()) {
             item.load(items);
+            itemMap.put(item.name(), item.getItem());
         }
     }
 
@@ -393,6 +400,10 @@ public enum ModItems implements IdProvider, ItemLike {
 
     private static Item.Properties food(Item.Properties p, int nut, float sat, Consumable c) {
         return p.food(new FoodProperties(nut, sat, true), c);
+    }
+
+    public static DeferredItem<Item> get(String name) {
+        return itemMap.get(name);
     }
 
     private DeferredItem<Item> item;
@@ -425,5 +436,9 @@ public enum ModItems implements IdProvider, ItemLike {
 
     public boolean useDataGen() {
         return useDataGen;
+    }
+
+    public ResourceKey<Item> getItemRK() {
+        return item.key();
     }
 }

@@ -9,6 +9,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -17,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
 
-public class SmallSapling extends VegetationBlock implements BonemealableBlock {
+public class SmallSaplingBlock extends VegetationBlock implements BonemealableBlock {
 
     public static Properties defaultProps(Properties props) {
         return props.mapColor(MapColor.PLANT)
@@ -28,25 +29,26 @@ public class SmallSapling extends VegetationBlock implements BonemealableBlock {
                 .pushReaction(PushReaction.POPPED);
     }
 
-    public static final IntegerProperty STAGE = ModBlockStateProps.smallSaplingStage;
-    public static final int MAX_STAGE = 3;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
+    public static final int MAX_AGE = 3;
 
-    private static final VoxelShape SHAPE = Block.column(12.0, 0.0, 12.0);
+    private static final VoxelShape SHAPE_NORMAL = Block.column(12.0, 0.0, 12.0);
+    private static final VoxelShape SHAPE_SMALL = Block.column(8.0, 0.0, 8.0);
 
     private final Supplier<Block> sapling;
 
-    public SmallSapling(Supplier<Block> sapling, Properties properties) {
+    public SmallSaplingBlock(Supplier<Block> sapling, Properties properties) {
         super(properties);
         this.sapling = sapling;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(STAGE);
+        builder.add(AGE);
     }
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
+        return state.getValue(AGE) > 1 ? SHAPE_NORMAL : SHAPE_SMALL;
     }
 
     @Override
@@ -61,8 +63,8 @@ public class SmallSapling extends VegetationBlock implements BonemealableBlock {
     }
 
     private void advanceSapling(ServerLevel level, BlockPos pos, BlockState state, RandomSource random) {
-        if (state.getValue(STAGE) < MAX_STAGE) {
-            level.setBlock(pos, state.cycle(STAGE), UPDATE_INVISIBLE | UPDATE_SKIP_BLOCK_ENTITY_SIDEEFFECTS);
+        if (state.getValue(AGE) < MAX_AGE) {
+            level.setBlock(pos, state.cycle(AGE), UPDATE_INVISIBLE | UPDATE_SKIP_BLOCK_ENTITY_SIDEEFFECTS);
         } else {
             level.setBlock(pos, sapling.get().defaultBlockState(), UPDATE_INVISIBLE | UPDATE_SKIP_BLOCK_ENTITY_SIDEEFFECTS);
         }
