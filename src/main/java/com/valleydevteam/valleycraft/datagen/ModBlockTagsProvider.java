@@ -44,6 +44,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.FENCE_GATES)
                 .add(ModBlocks.applewood_fence_gate.getBlockRK());
 
+        tag(BlockTags.WOODEN_DOORS)
+                .add(ModBlocks.applewood_door.getBlockRK());
+
+        tag(BlockTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.applewood_trapdoor.getBlockRK());
+
         for (var block : ModBlocks.values()) {
             var name = block.name();
             if (name.endsWith("_planks")) {

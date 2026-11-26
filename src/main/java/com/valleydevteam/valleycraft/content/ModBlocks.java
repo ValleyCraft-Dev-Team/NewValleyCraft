@@ -12,9 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -57,7 +55,11 @@ public enum ModBlocks implements IdProvider, ItemLike {
     stripped_applewood_wood(ModelType.manual, RotatedPillarBlock::new, () -> copy(Blocks.STRIPPED_OAK_WOOD), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
     applewood_button(ModelType.manual, p -> new ButtonBlock(ModBlockSetTypes.APPLEWOOD, 30, p), () -> copy(Blocks.OAK_BUTTON), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_ITEMS_EXTRA_SMALL)),
     applewood_fence(ModelType.manual, FenceBlock::new, () -> copy(Blocks.OAK_FENCE), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
-    applewood_fence_gate(ModelType.manual, p -> new FenceGateBlock(ModWoodTypes.APPLEWOOD, p), () -> copy(Blocks.OAK_FENCE_GATE), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),;
+    applewood_fence_gate(ModelType.manual, p -> new FenceGateBlock(ModWoodTypes.APPLEWOOD, p), () -> copy(Blocks.OAK_FENCE_GATE), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
+    applewood_door(ModelType.manual, p -> new DoorBlock(ModBlockSetTypes.APPLEWOOD, p), () -> copy(Blocks.OAK_DOOR), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_ITEMS_LARGE)),
+    applewood_trapdoor(ModelType.manual, p -> new TrapDoorBlock(ModBlockSetTypes.APPLEWOOD, p), () -> copy(Blocks.OAK_TRAPDOOR), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
+    applewood_pressure_plate(ModelType.manual, p -> new PressurePlateBlock(ModBlockSetTypes.APPLEWOOD, p), () -> copy(Blocks.OAK_PRESSURE_PLATE), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
+    ;
 
     ModBlocks(ModelType model, Function<BlockBehaviour.Properties, Block> blockFun) {
         this(model, blockFun, null, null);

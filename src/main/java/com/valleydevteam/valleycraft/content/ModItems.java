@@ -159,8 +159,6 @@ public enum ModItems implements IdProvider, ItemLike {
     ancient_scroll,
     ancient_shoes,
     apple_pie_dough,
-    applewood_door,
-    applewood_sign,
     azalea_flower_crown,
     baked_pumpkin_seeds,
     bamboo_staff(true),

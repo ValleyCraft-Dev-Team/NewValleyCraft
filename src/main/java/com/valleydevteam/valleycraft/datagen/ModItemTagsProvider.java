@@ -30,10 +30,16 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModBlocks.applewood_slab.getItemRK());
         tag(ItemTags.WOODEN_BUTTONS)
                 .add(ModBlocks.applewood_button.getItemRK());
+        tag(ItemTags.WOODEN_PRESSURE_PLATES)
+                .add(ModBlocks.applewood_pressure_plate.getItemRK());
         tag(ItemTags.WOODEN_FENCES)
                 .add(ModBlocks.applewood_fence.getItemRK());
         tag(ItemTags.FENCE_GATES)
                 .add(ModBlocks.applewood_fence_gate.getItemRK());
+        tag(ItemTags.WOODEN_DOORS)
+                .add(ModBlocks.applewood_door.getItemRK());
+        tag(ItemTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.applewood_trapdoor.getItemRK());
         for (var block : ModBlocks.values()) {
             var name = block.name();
             if (name.endsWith("_planks")) {

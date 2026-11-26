@@ -32,7 +32,8 @@ public class ModModelProvider extends ModelProvider {
 
         woodFamily(blockModels, ModBlocks.applewood_log, ModBlocks.applewood_wood, ModBlocks.stripped_applewood_log,
                 ModBlocks.stripped_applewood_wood, ModBlocks.applewood_planks, ModBlocks.applewood_slab,
-                ModBlocks.applewood_stairs, ModBlocks.applewood_button, ModBlocks.applewood_fence, ModBlocks.applewood_fence_gate);
+                ModBlocks.applewood_stairs, ModBlocks.applewood_button, ModBlocks.applewood_pressure_plate, ModBlocks.applewood_fence,
+                ModBlocks.applewood_fence_gate, ModBlocks.applewood_door, ModBlocks.applewood_trapdoor);
 
         // Auto generate block and item models
         for (var blockEnum : ModBlocks.values()) {
@@ -59,10 +60,10 @@ public class ModModelProvider extends ModelProvider {
         }
     }
 
-    private static void woodFamily(BlockModelGenerators models, ModBlocks log, ModBlocks wood, ModBlocks sLog, ModBlocks sWood, ModBlocks planks, ModBlocks slab, ModBlocks stairs, ModBlocks button, ModBlocks fence, ModBlocks fenceGate) {
+    private static void woodFamily(BlockModelGenerators models, ModBlocks log, ModBlocks wood, ModBlocks sLog, ModBlocks sWood, ModBlocks planks, ModBlocks slab, ModBlocks stairs, ModBlocks button, ModBlocks pressurePlate, ModBlocks fence, ModBlocks fenceGate, ModBlocks door, ModBlocks trapdoor) {
         models.woodProvider(log.get()).logWithHorizontal(log.get()).wood(wood.get());
         models.woodProvider(sLog.get()).logWithHorizontal(sLog.get()).wood(sWood.get());
-        models.family(planks.get()).slab(slab.get()).stairs(stairs.get()).button(button.get()).fence(fence.get()).fenceGate(fenceGate.get());
+        models.family(planks.get()).slab(slab.get()).stairs(stairs.get()).button(button.get()).fence(fence.get()).fenceGate(fenceGate.get()).door(door.get()).pressurePlate(pressurePlate.get()).trapdoor(trapdoor.get());
     }
 
     private static void item(ItemLike item, ItemModelGenerators models) {
