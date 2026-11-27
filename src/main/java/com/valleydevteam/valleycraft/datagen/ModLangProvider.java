@@ -39,6 +39,12 @@ public class ModLangProvider extends LanguageProvider {
         autoLang.put(ModBlocks.small_oak_sapling.asItem(), "Acorn Seed");
         autoLang.put(ModBlocks.small_spruce_sapling.asItem(), "Pine Cone Seeds");
 
+        autoLang.put(ModBlocks.cobblestone_rock_pile.asItem(), "Cobblestone Rock");
+        autoLang.put(ModBlocks.deepslate_rock_pile.asItem(), "Deepslate Rock");
+        autoLang.put(ModBlocks.dripstone_rock_pile.asItem(), "Dripstone Rock");
+        autoLang.put(ModBlocks.endstone_rock_pile.asItem(), "Endstone Rock");
+        autoLang.put(ModBlocks.netherrack_rock_pile.asItem(), "Netherrack Rock");
+
         autoLang.addAll();
 
         add("itemGroup.valleycraft", "ValleyCraft Tab");

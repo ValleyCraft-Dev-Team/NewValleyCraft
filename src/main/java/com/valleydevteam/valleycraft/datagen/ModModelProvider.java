@@ -54,6 +54,11 @@ public class ModModelProvider extends ModelProvider {
                     case small_dark_oak_sapling -> item(block, "dark_acorn_seed", itemModels);
                     case small_oak_sapling -> item(block, "acorn_seed", itemModels);
                     case small_spruce_sapling -> item(block, "pine_cone_seeds", itemModels);
+                    case cobblestone_rock_pile ->  item(block, "cobblestone_rock", itemModels);
+                    case deepslate_rock_pile ->  item(block, "deepslate_rock", itemModels);
+                    case dripstone_rock_pile ->  item(block, "dripstone_rock", itemModels);
+                    case endstone_rock_pile ->  item(block, "endstone_rock", itemModels);
+                    case netherrack_rock_pile ->  item(block, "netherrack_rock", itemModels);
                     default -> item(block.asItem(), itemModels);
                 }
             }

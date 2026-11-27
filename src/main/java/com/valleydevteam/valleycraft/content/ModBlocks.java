@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -46,6 +47,11 @@ public enum ModBlocks implements IdProvider, ItemLike {
     red_anemone(ModelType.cross, AnemoneBlock::new, () -> AnemoneBlock.defaultProps().mapColor(MapColor.NETHER), item()),
     pink_anemone(ModelType.cross, AnemoneBlock::new, () -> AnemoneBlock.defaultProps().mapColor(MapColor.COLOR_PINK), item()),
     yellow_anemone(ModelType.cross, AnemoneBlock::new, () -> AnemoneBlock.defaultProps().mapColor(MapColor.GOLD), item()),
+    cobblestone_rock_pile(ModelType.customBlock, RockPileBlock::new, RockPileBlock::defaultProps, item()),
+    deepslate_rock_pile(ModelType.customBlock, RockPileBlock::new, RockPileBlock::defaultProps, item()),
+    dripstone_rock_pile(ModelType.customBlock, RockPileBlock::new, RockPileBlock::defaultProps, item()),
+    endstone_rock_pile(ModelType.customBlock, RockPileBlock::new, RockPileBlock::defaultProps, item()),
+    netherrack_rock_pile(ModelType.customBlock, RockPileBlock::new, RockPileBlock::defaultProps, item()),
     applewood_planks(ModelType.manual, Block::new, () -> copy(Blocks.OAK_PLANKS), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
     applewood_log(ModelType.manual, RotatedPillarBlock::new, () -> copy(Blocks.OAK_LOG), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
     applewood_wood(ModelType.manual, RotatedPillarBlock::new, () -> copy(Blocks.OAK_WOOD), () -> itemProps().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS)),
